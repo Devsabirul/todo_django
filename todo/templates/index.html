@@ -11,7 +11,9 @@
 <body>
     <form action="" method="post">
         {% csrf_token %}
-        {{form.as_p}}
+            {% for fm in form %}
+                {{fm}} {{fm.errors|striptags}}
+            {% endfor %}
         <input type="submit" value="Add">
     </form>
     {% for md in md %}
